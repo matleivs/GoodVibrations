@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    //    @OnClick(R.id.vibrate) // Butterknife OnClick not working D:
-    public void vibrateNow(View view) {
+    @OnClick(R.id.vibrate)
+    void vibrateNow() {
         Log.i("XYZ", "vibrateNow: ");
+        Toast.makeText(this, "It's Working", Toast.LENGTH_SHORT).show();
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(new long[]{0, 500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500}, -1);
     }
